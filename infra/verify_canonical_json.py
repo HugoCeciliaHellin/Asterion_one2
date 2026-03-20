@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import sys
+if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
 """
 ============================================================
 ASTERION ONE — Canonical JSON Cross-Compatibility Verification

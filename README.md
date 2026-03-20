@@ -29,23 +29,38 @@ The system integrates four segments:
 
 ## Quick Start
 
+> See **[docs/USAGE.md](docs/USAGE.md)** for the full usage guide.
+
 ```bash
-# 1. Start infrastructure (PostgreSQL)
+# Prerequisites: Python 3.11+, Node.js 20+, Docker Desktop
+
+# 1. Create Python virtualenv and install deps
+python -m venv .venv
+source .venv/Scripts/activate          # Windows (Git Bash)
+# source .venv/bin/activate            # macOS / Linux
+pip install -r flight/requirements.txt
+pip install -r twin/requirements.txt
+
+# 2. Install Node.js deps (no package-lock.json — use npm install, not npm ci)
+cd ground && npm install && cd ..
+cd ground/ui && npm install && cd ../..
+
+# 3. Start PostgreSQL (port 5433 on Windows if PG17 is installed locally)
 docker compose up -d
+# Wait ~5s for health check, then run migrations:
+cd ground
+POSTGRES_PORT=5433 npx knex migrate:latest --knexfile knexfile.js
+POSTGRES_PORT=5433 NODE_ENV=test npx knex migrate:latest --knexfile knexfile.js
+cd ..
 
-# 2. Install Flight dependencies
-cd flight && pip install -r requirements.txt && cd ..
-
-# 3. Install Twin dependencies
-cd twin && pip install -r requirements.txt && cd ..
-
-# 4. Install Ground dependencies
-cd ground && npm ci && cd ..
-
-# 5. Run tests
-python -m pytest flight/tests/ -v
-python -m pytest twin/tests/ -v
-cd ground && npm test && cd ..
+# 4. Run full test suite
+source .venv/Scripts/activate
+python -m pytest flight/ twin/ -v
+cd ground
+POSTGRES_PORT=5433 NODE_OPTIONS='--experimental-vm-modules' npx jest --forceExit --detectOpenHandles
+cd ..
+node ground/ui/src/lib/__tests__/canonical_json.test.mjs
+cd ground/ui && node src/lib/__tests__/crypto.test.mjs && cd ../..
 ```
 
 ## Directory Structure

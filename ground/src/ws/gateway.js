@@ -168,12 +168,21 @@ class WsGateway {
     this._uiClients.add(ws);
     console.log(`[ws_gateway] UI client connected (total: ${this._uiClients.size})`);
 
-    // Send initial status
-    ws.send(JSON.stringify({
-      type: 'FLIGHT_STATUS',
-      payload: { connected: this.isFlightConnected() },
-      timestamp: new Date().toISOString(),
-    }));
+    // Send initial status — deferred to next timers phase so the
+    // client has time to register its 'message' listener before
+    // the message arrives (avoids race condition: 101 Switching
+    // Protocols and FLIGHT_STATUS otherwise arrive in the same
+    // TCP segment and are processed before the Promise chain
+    // microtask can register the listener).
+    setTimeout(() => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+          type: 'FLIGHT_STATUS',
+          payload: { connected: this.isFlightConnected() },
+          timestamp: new Date().toISOString(),
+        }));
+      }
+    }, 0);
 
     ws.on('close', () => {
       this._uiClients.delete(ws);

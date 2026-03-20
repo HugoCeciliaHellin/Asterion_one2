@@ -11,7 +11,8 @@
 // ============================================================
 
 import nacl from 'tweetnacl';
-import { encodeBase64, decodeBase64 } from 'tweetnacl-util';
+import naclUtil from 'tweetnacl-util';
+const { encodeBase64, decodeBase64 } = naclUtil;
 import { createHash } from 'crypto';
 
 // ── Re-implement crypto.js functions for Node.js ─────────

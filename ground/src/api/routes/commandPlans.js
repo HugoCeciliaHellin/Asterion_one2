@@ -152,7 +152,16 @@ export function createCommandPlansRouter() {
       );
     }
 
-    // Precondition 2: Contact window must be ACTIVE (if assigned)
+    // Precondition 2: Flight must be connected via WebSocket
+    // (checked before window status so callers get 503 when flight is down)
+    const wsGateway = req.wsGateway;
+    if (!wsGateway || !wsGateway.isFlightConnected()) {
+      throw apiError(503, 'FLIGHT_DISCONNECTED',
+        'Flight Segment is not connected. Cannot upload plan.'
+      );
+    }
+
+    // Precondition 3: Contact window must be ACTIVE (if assigned)
     if (plan.contact_window_id) {
       const window = await contactWindows.getById(req.db, plan.contact_window_id);
       if (!window || window.status !== 'ACTIVE') {
@@ -160,14 +169,6 @@ export function createCommandPlansRouter() {
           `Contact window must be ACTIVE to upload. Current: ${window?.status || 'NOT_FOUND'}`
         );
       }
-    }
-
-    // Precondition 3: Flight must be connected via WebSocket
-    const wsGateway = req.wsGateway;
-    if (!wsGateway || !wsGateway.isFlightConnected()) {
-      throw apiError(503, 'FLIGHT_DISCONNECTED',
-        'Flight Segment is not connected. Cannot upload plan.'
-      );
     }
 
     // Build PLAN_UPLOAD message per IF-WS-002

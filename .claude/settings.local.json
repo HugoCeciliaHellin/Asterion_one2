@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(echo -n \"Python \\(alias\\): \" && python --version 2>&1 && echo -n \"pip: \" && pip --version 2>&1 && echo -n \"Docker: \" && docker --version 2>&1 && echo -n \"Docker Compose: \" && docker compose version 2>&1 && echo -n \"Git: \" && git --version 2>&1)"
+    ]
+  }
+}
