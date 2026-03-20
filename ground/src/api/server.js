@@ -14,13 +14,13 @@
 
 import express from 'express';
 import cors from 'cors';
-import { createHealthRouter } from './routes/health.js';
-import { createContactWindowsRouter } from './routes/contactWindows.js';
-import { createCommandPlansRouter } from './routes/commandPlans.js';
-import { createCommandsRouter } from './routes/commands.js';
-import { createTelemetryRouter } from './routes/telemetry.js';
-import { createEventsRouter } from './routes/events.js';
-import { createTwinRouter } from './routes/twin.js';
+import { createHealthRouter } from '../../../routes/health.js';
+import { createContactWindowsRouter } from '../../../routes/contactWindows.js';
+import { createCommandPlansRouter } from '../../../routes/commandPlans.js';
+import { createCommandsRouter } from '../../../routes/commands.js';
+import { createTelemetryRouter } from '../../../routes/telemetry.js';
+import { createEventsRouter } from '../../../routes/events.js';
+import { createTwinRouter } from '../../../routes/twin.js';
 
 // ──────────────────────────────────────────────────────────
 // Server start time (for uptime calculation in /api/health)
