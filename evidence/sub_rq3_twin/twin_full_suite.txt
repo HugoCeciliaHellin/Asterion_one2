@@ -1,0 +1,56 @@
+C:\Users\USER\Desktop\asterion-one\.venv\Lib\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.6.0 -- C:\Users\USER\Desktop\asterion-one\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\USER\Desktop\asterion-one
+configfile: pytest.ini
+plugins: asyncio-0.24.0
+asyncio: mode=Mode.STRICT, default_loop_scope=None
+collecting ... collected 41 items
+
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_returns_alert_on_breach PASSED [  2%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_returns_none_no_breach PASSED [  4%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_returns_none_zero_lead_time PASSED [  7%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_thermal_warning_severity PASSED [  9%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_thermal_critical_severity PASSED [ 12%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_energy_warning_severity PASSED [ 14%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_energy_critical_severity PASSED [ 17%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_meets_requirement_when_lead_ge_15 PASSED [ 19%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_not_meets_requirement_when_lead_lt_15 PASSED [ 21%]
+twin/tests/test_alert_engine.py::TestAlertEngineEvaluate::test_forecast_summary_populated PASSED [ 24%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_gate_thermal_rationale_contains_physics_variables PASSED [ 26%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_thermal_rationale_mentions_contributing_factors PASSED [ 29%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_thermal_rationale_mentions_breach_time PASSED [ 31%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_energy_rationale_contains_soc_metrics PASSED [ 34%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_energy_rationale_mentions_deficit PASSED [ 36%]
+twin/tests/test_alert_engine.py::TestGenerateRationale::test_rationale_is_human_readable_string PASSED [ 39%]
+twin/tests/test_alert_engine.py::TestEndToEnd::test_full_pipeline_thermal_breach_alert PASSED [ 41%]
+twin/tests/test_alert_engine.py::TestEndToEnd::test_full_pipeline_no_alert_normal_ops PASSED [ 43%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_constant_temperature_at_equilibrium PASSED [ 46%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_temperature_rises_with_high_power PASSED [ 48%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_temperature_drops_with_zero_power PASSED [ 51%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_monotonic_rise_with_constant_high_power PASSED [ 53%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_first_step_equals_current_temp PASSED [ 56%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_custom_parameters PASSED [ 58%]
+twin/tests/test_twin_engine.py::TestThermalModel::test_short_power_profile_extends PASSED [ 60%]
+twin/tests/test_twin_engine.py::TestEnergyModel::test_soc_depletes_under_high_load PASSED [ 63%]
+twin/tests/test_twin_engine.py::TestEnergyModel::test_soc_charges_under_low_load PASSED [ 65%]
+twin/tests/test_twin_engine.py::TestEnergyModel::test_soc_clamped_to_zero PASSED [ 68%]
+twin/tests/test_twin_engine.py::TestEnergyModel::test_soc_clamped_to_one PASSED [ 70%]
+twin/tests/test_twin_engine.py::TestEnergyModel::test_first_step_equals_current_soc PASSED [ 73%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_thermal_returns_forecast PASSED [ 75%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_thermal_detects_breach PASSED [ 78%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_thermal_no_breach_normal_conditions PASSED [ 80%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_thermal_empty_telemetry PASSED [ 82%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_energy_detects_depletion PASSED [ 85%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_predict_energy_no_breach_healthy_battery PASSED [ 87%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_gate_thermal_lead_time_ge_15_min PASSED [ 90%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_rate_per_min_is_positive_for_rising_temp PASSED [ 92%]
+twin/tests/test_twin_engine.py::TestPredictionEngine::test_metadata_includes_model_params PASSED [ 95%]
+twin/tests/test_twin_smoke.py::test_twin_package_importable PASSED       [ 97%]
+twin/tests/test_twin_smoke.py::test_numpy_available PASSED               [100%]
+
+============================= 41 passed in 0.23s ==============================

@@ -1,0 +1,11 @@
+# Digital twin segment dependencies
+# Python 3.11+ required. Usage: pip install -r requirements.txt
+
+# --- Physics Models ---
+numpy==2.4.3             # RC thermal and energy models
+
+# --- Ground API Communication ---
+requests==2.31.0         # HTTP client for REST API (fetch telemetry, post forecasts)
+
+# --- Testing ---
+pytest==8.3.4            # Unit test runner

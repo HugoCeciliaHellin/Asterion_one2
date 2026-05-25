@@ -1,0 +1,75 @@
+
+=== fault_injector: inject bad-signature ===
+Target: http://localhost:3000/api
+
+  ✓ Create contact window: id=fea6579c
+  ✓ Activate window: SCHEDULED → ACTIVE
+  ✓ Create command plan: id=5875c36e, 2 commands
+  ✓ Sign with CORRUPTED signature: sig=Q09SUlVQVEVEX1NJR05B...
+  ✓ Upload to Flight: UPLOADED — awaiting Flight NACK
+  ✗ Plan REJECTED by Flight: status=UPLOADED, poll_time=10419ms
+  ✓ 0 commands EXECUTED: executed=0, failed=0, total=2
+  ✗ ≥2 CRITICAL events logged: found=0, types=[]
+  ✓ Audit chain intact: chain_valid=True
+
+{
+  "injection_type": "bad-signature",
+  "injected_at": "2026-05-12T15:27:41.958449+00:00",
+  "requirement": "REQ-SEC-ED25519",
+  "steps": [
+    {
+      "step": "Create contact window",
+      "success": true,
+      "detail": "id=fea6579c"
+    },
+    {
+      "step": "Activate window",
+      "success": true,
+      "detail": "SCHEDULED \u2192 ACTIVE"
+    },
+    {
+      "step": "Create command plan",
+      "success": true,
+      "detail": "id=5875c36e, 2 commands"
+    },
+    {
+      "step": "Sign with CORRUPTED signature",
+      "success": true,
+      "detail": "sig=Q09SUlVQVEVEX1NJR05B..."
+    },
+    {
+      "step": "Upload to Flight",
+      "success": true,
+      "detail": "UPLOADED \u2014 awaiting Flight NACK"
+    },
+    {
+      "step": "Plan REJECTED by Flight",
+      "success": false,
+      "detail": "status=UPLOADED, poll_time=10419ms"
+    },
+    {
+      "step": "0 commands EXECUTED",
+      "success": true,
+      "detail": "executed=0, failed=0, total=2"
+    },
+    {
+      "step": "\u22652 CRITICAL events logged",
+      "success": false,
+      "detail": "found=0, types=[]"
+    },
+    {
+      "step": "Audit chain intact",
+      "success": true,
+      "detail": "chain_valid=True"
+    }
+  ],
+  "plan_id": "5875c36e-9fe7-42d2-b9c2-0eaa3113b42e",
+  "plan_status": "UPLOADED",
+  "commands_executed": 0,
+  "commands_failed": 0,
+  "critical_events_count": 0,
+  "critical_event_types": [],
+  "chain_valid": true,
+  "completed_at": "2026-05-12T15:27:52.437791+00:00",
+  "pass": false
+}

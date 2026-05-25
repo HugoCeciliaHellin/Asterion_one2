@@ -1,0 +1,13 @@
+[kill-process] Starting FSW in NOMINAL...
+[kill-process] Simulating SIGKILL...
+[kill-process] Restarting with RECOVERY_MODE=SAFE...
+{
+  "injection_type": "kill-process",
+  "timestamp": "2026-05-12T15:26:08.465988+00:00",
+  "status": "COMPLETED",
+  "fsw_state_after": "SAFE",
+  "recovery_time_ms": 15.58,
+  "target_ms": 3000,
+  "wd_restarts": 1,
+  "pass": true
+}

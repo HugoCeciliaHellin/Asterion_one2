@@ -1,0 +1,24 @@
+[network-outage] Simulating 120s outage (real: 5.0s)...
+[network-outage] Phase A: sending baseline frames...
+[network-outage] Phase B: forcing CLOSED for 5.0s...
+[network-outage]   Queued during outage: 20
+[network-outage] Phase C: reconnecting, replaying...
+{
+  "injection_type": "network-outage",
+  "timestamp": "2026-05-12T15:25:40.157944+00:00",
+  "status": "COMPLETED",
+  "outage_duration_s": 120,
+  "real_duration_s": 5.0,
+  "total_generated": 40,
+  "total_received": 40,
+  "missing_count": 0,
+  "missing_seq_ids": [],
+  "duplicates": 0,
+  "gaps": [],
+  "queue_remaining": 0,
+  "queued_during_outage": 20,
+  "replayed": 20,
+  "p95_latency_ms": 215.06,
+  "zero_loss": true,
+  "pass": true
+}

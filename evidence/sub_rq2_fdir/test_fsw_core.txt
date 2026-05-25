@@ -1,0 +1,36 @@
+C:\Users\USER\Desktop\asterion-one\.venv\Lib\site-packages\pytest_asyncio\plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-8.3.4, pluggy-1.6.0 -- C:\Users\USER\Desktop\asterion-one\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\USER\Desktop\asterion-one
+configfile: pytest.ini
+plugins: asyncio-0.24.0
+asyncio: mode=Mode.STRICT, default_loop_scope=None
+collecting ... collected 21 items
+
+flight/tests/test_fsw_core.py::test_t1_boot_to_nominal PASSED            [  4%]
+flight/tests/test_fsw_core.py::test_t2_boot_to_safe PASSED               [  9%]
+flight/tests/test_fsw_core.py::test_t3_thermal_fault PASSED              [ 14%]
+flight/tests/test_fsw_core.py::test_t3_voltage_fault PASSED              [ 19%]
+flight/tests/test_fsw_core.py::test_t3_battery_fault PASSED              [ 23%]
+flight/tests/test_fsw_core.py::test_t3_comms_fault PASSED                [ 28%]
+flight/tests/test_fsw_core.py::test_t5_recovery PASSED                   [ 33%]
+flight/tests/test_fsw_core.py::test_t6_watchdog_escalation PASSED        [ 38%]
+flight/tests/test_fsw_core.py::test_t7_safe_remains PASSED               [ 42%]
+flight/tests/test_fsw_core.py::test_hysteresis_prevents_recovery PASSED  [ 47%]
+flight/tests/test_fsw_core.py::test_stability_timer_resets PASSED        [ 52%]
+flight/tests/test_fsw_core.py::test_nominal_stable PASSED                [ 57%]
+flight/tests/test_fsw_core.py::test_telemetry_generated PASSED           [ 61%]
+flight/tests/test_fsw_core.py::test_commands_execute_in_nominal PASSED   [ 66%]
+flight/tests/test_fsw_core.py::test_commands_rejected_in_safe PASSED     [ 71%]
+flight/tests/test_fsw_core.py::test_critical_stops PASSED                [ 76%]
+flight/tests/test_fsw_core.py::test_wd_restart_count PASSED              [ 80%]
+flight/tests/test_fsw_core.py::test_boot_counter_persists PASSED         [ 85%]
+flight/tests/test_fsw_core.py::test_audit_chain_through_transitions PASSED [ 90%]
+flight/tests/test_fsw_core.py::test_state_change_callback PASSED         [ 95%]
+flight/tests/test_fsw_core.py::test_tick_count PASSED                    [100%]
+
+============================= 21 passed in 1.03s ==============================

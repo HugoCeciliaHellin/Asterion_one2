@@ -1,0 +1,38 @@
+{
+  "name": "asterion-ground",
+  "version": "0.3.0",
+  "description": "Asterion One — Ground Segment (API + WebSocket Gateway + DB)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:ws": "node src/ws/gateway.js",
+    "migrate": "knex migrate:latest --knexfile knexfile.js",
+    "migrate:rollback": "knex migrate:rollback --knexfile knexfile.js",
+    "seed": "knex seed:run --knexfile knexfile.js",
+    "test": "NODE_OPTIONS='--experimental-vm-modules' jest --forceExit --detectOpenHandles",
+    "test:db": "NODE_OPTIONS='--experimental-vm-modules' jest src/db/__tests__/ --forceExit --detectOpenHandles",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "knex": "^3.1.0",
+    "pg": "^8.13.0",
+    "ws": "^8.18.0",
+    "uuid": "^10.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "@jest/globals": "^29.7.0",
+    "eslint": "^8.57.0"
+  },
+  "jest": {
+    "transform": {},
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+
+=== fault_injector: inject bad-signature ===
+Target: http://localhost:3000/api
+
+Traceback (most recent call last):
+  File "C:\Users\USER\Desktop\asterion-one\infra\fault_injector_bad_sig.py", line 303, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\USER\Desktop\asterion-one\infra\fault_injector_bad_sig.py", line 282, in main
+    report = inject_bad_signature(api_base=args.api_base, verbose=verbose)
+  File "C:\Users\USER\Desktop\asterion-one\infra\fault_injector_bad_sig.py", line 117, in inject_bad_signature
+    log_step("Create contact window", True, f"id={window_id[:8]}")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Desktop\asterion-one\infra\fault_injector_bad_sig.py", line 96, in log_step
+    print(f"  {icon} {name}: {detail}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python313\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 2: character maps to <undefined>

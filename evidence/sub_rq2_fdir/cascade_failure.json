@@ -1,0 +1,36 @@
+[cascade-failure] Simulating 4 consecutive WD restarts (max=3)...
+  Restart #1: state=SAFE, wd_count=1
+  Restart #2: state=SAFE, wd_count=2
+  Restart #3: state=SAFE, wd_count=3
+  Restart #4: state=CRITICAL, wd_count=4
+{
+  "injection_type": "cascade-failure",
+  "timestamp": "2026-05-12T15:26:22.948546+00:00",
+  "status": "COMPLETED",
+  "max_restarts": 3,
+  "restarts": [
+    {
+      "restart_num": 1,
+      "state": "SAFE",
+      "wd_restarts": 1
+    },
+    {
+      "restart_num": 2,
+      "state": "SAFE",
+      "wd_restarts": 2
+    },
+    {
+      "restart_num": 3,
+      "state": "SAFE",
+      "wd_restarts": 3
+    },
+    {
+      "restart_num": 4,
+      "state": "CRITICAL",
+      "wd_restarts": 4
+    }
+  ],
+  "t6_triggered": true,
+  "all_safe_before_escalation": true,
+  "pass": true
+}

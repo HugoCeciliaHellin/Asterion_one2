@@ -1,0 +1,14 @@
+[thermal-spike] Injecting temp=85.0°C for 60s...
+{
+  "injection_type": "thermal-spike",
+  "timestamp": "2026-05-12T15:26:16.694346+00:00",
+  "status": "COMPLETED",
+  "temp_c": 85.0,
+  "duration_s": 60,
+  "t3_triggered": true,
+  "detection_time_ms": 2.22,
+  "t3_audit_events": 1,
+  "recovered_to_nominal": true,
+  "recovery_time_ms": 509.04,
+  "pass": true
+}

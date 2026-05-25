@@ -1,0 +1,19 @@
+{
+  "cycle": 1,
+  "timestamp": "2026-05-12T15:31:20.261364+00:00",
+  "thermal": {
+    "breach_detected": false,
+    "lead_time_min": null,
+    "current_temp": 55.1,
+    "rate_per_min": 0.2667
+  },
+  "energy": {
+    "breach_detected": false,
+    "lead_time_min": null,
+    "current_soc": 0.8444,
+    "rate_per_min": 0.000966
+  },
+  "alerts": [],
+  "errors": [],
+  "duration_ms": 135.54
+}
